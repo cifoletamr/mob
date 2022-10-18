@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    .imagenes {
+      position: relative;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+    <div>
+        <input type="button" id="btn1" value="Tren"  onclick="mover_tren()">
+        <input type="button" id="btn2" value="Logo"  onclick="mover_logo()">
+    </div>
+
+    <img id="train" class="imagenes" src="https://js.cx/clipart/train.gif">
+    <img id="logo"  class="imagenes" width= "200px"
+         src="https://www.shareicon.net/data/512x512/2015/09/04/95596_html_512x512.png">
+  <script>
+	function mover_tren() {
+		mover ("train");
+	}
+	function mover_logo() {
+        console.log("mover logo")
+		mover ("logo");
+	}
+    function mover (id_img) {
+	  let start = Date.now();
+      console.log("mover")
+      elemento = document.getElementById(id_img);
+	  let timer = setInterval(function() {
+            console.log("paso")
+            let timePassed = Date.now() - start;
+            console.log(elemento.style.left)
+            elemento.style.left = timePassed / 5 + 'px';
+            if (timePassed > 2000) clearInterval(timer);
+
+	  }, 20);
+	}
+  </script>
+
+
+</body>
+
+</html>
